@@ -11,7 +11,8 @@ namespace Interview
         static void Main(string[] args)
         {
             //QuestionOne();
-            QuestionTwo();
+            //QuestionTwo();
+            QuestionThree();
             Console.ReadLine();
         }
 
@@ -38,6 +39,15 @@ namespace Interview
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public static void QuestionThree()
+        {
+            byte num = 100;
+            dynamic val = num;
+            Console.WriteLine(val.GetType());
+            val += 100;
+            Console.WriteLine(val.GetType());
         }
     }
 }
