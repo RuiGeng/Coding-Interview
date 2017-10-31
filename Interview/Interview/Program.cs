@@ -10,7 +10,8 @@ namespace Interview
     {
         static void Main(string[] args)
         {
-            QuestionOne();
+            //QuestionOne();
+            QuestionTwo();
             Console.ReadLine();
         }
 
@@ -23,6 +24,20 @@ namespace Interview
         {
             Console.WriteLine(Math.Round(6.5));
             Console.WriteLine(Math.Round(11.5));
+        }
+
+        public static void QuestionTwo()
+        {
+            int[] i = new int[0];
+            Console.WriteLine(i.Length);
+            try
+            {
+                Console.WriteLine(i[0]);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
