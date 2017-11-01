@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Interview
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //QuestionOne();
             //QuestionTwo();
-            QuestionThree();
+            //QuestionThree();
+            //QuestionFour();
+            //QuestionFive();
             Console.ReadLine();
         }
 
@@ -48,6 +46,28 @@ namespace Interview
             Console.WriteLine(val.GetType());
             val += 100;
             Console.WriteLine(val.GetType());
+        }
+
+        public static void QuestionFour()
+        {
+#if (!pi)
+            Console.WriteLine("i");
+#else
+            Console.WriteLine("PI undefined");
+#endif
+            Console.WriteLine("ok");
+        }
+
+        public static void QuestionFive()
+        {
+            int[] arr = new int[2];
+            arr[1] = 10;
+            Object o = arr;
+            int[] arr1 = (int[]) o;
+            arr1[1] = 100;
+            Console.WriteLine(arr[1]);
+            ((int[]) o)[1] = 1000;
+            Console.WriteLine(arr[1]);
         }
     }
 }
