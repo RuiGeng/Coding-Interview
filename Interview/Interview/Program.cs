@@ -16,7 +16,8 @@ namespace Interview
             //QuestionEight();
             //QuestionNine();
             //QuestionTen();
-            Question11();
+            //Question11();
+            Question12();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -163,8 +164,22 @@ namespace Interview
 
         public static void Question11()
         {
-            char[] num = {'1', '2', '3'};
+            char[] num = { '1', '2', '3' };
             Console.WriteLine(" char array: " + num);
+        }
+
+        public static void Question12()
+        {
+            ForQuestion12 forQuestion12 = null;
+            Console.WriteLine(ForQuestion12.Print());
+        }
+
+        class ForQuestion12
+        {
+            public static string Print()
+            {
+                return "Hi, I am a Tech-savvy!!";
+            }
         }
     }
 }
