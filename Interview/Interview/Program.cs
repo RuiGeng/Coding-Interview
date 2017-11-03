@@ -72,10 +72,10 @@ namespace Interview
             int[] arr = new int[2];
             arr[1] = 10;
             object o = arr;
-            int[] arr1 = (int[]) o;
+            int[] arr1 = (int[])o;
             arr1[1] = 100;
             Console.WriteLine(arr[1]);
-            ((int[]) o)[1] = 1000;
+            ((int[])o)[1] = 1000;
             Console.WriteLine(arr[1]);
         }
 
@@ -126,9 +126,9 @@ namespace Interview
         public static void QuestionEight()
         {
             PrintQuestionEight(2, 3, 8);
-            int[] arr = {2, 11, 15, 20};
+            int[] arr = { 2, 11, 15, 20 };
             PrintQuestionEight(arr);
-        } 
+        }
 
         public static void PrintQuestionEight(params int[] b)
         {
@@ -139,5 +139,12 @@ namespace Interview
             Console.WriteLine();
         }
 
+        public static void QuestionNine()
+        {
+            char x = 'A';
+            int i = 0;
+            Console.WriteLine(true ? x : 0);
+            Console.WriteLine(false ? i : x);
+        }
     }
 }
