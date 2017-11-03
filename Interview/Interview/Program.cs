@@ -16,6 +16,7 @@ namespace Interview
             //QuestionEight();
             //QuestionNine();
             //QuestionTen();
+            Question11();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -158,6 +159,12 @@ namespace Interview
 
             num1 ^= num2 ^= num1 ^= num2;
             Console.WriteLine(num1 + "," + num2);
+        }
+
+        public static void Question11()
+        {
+            char[] num = {'1', '2', '3'};
+            Console.WriteLine(" char array: " + num);
         }
     }
 }
