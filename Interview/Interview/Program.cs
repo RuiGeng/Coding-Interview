@@ -11,7 +11,13 @@ namespace Interview
             //QuestionThree();
             //QuestionFour();
             //QuestionFive();
-            QuestionSix();
+            //QuestionSix();
+            //QuestionSeven();
+
+            //Person p = new Person("Jack");
+            //PersonMethod(p);
+            //Console.WriteLine(p.Name);
+
             Console.ReadLine();
         }
 
@@ -78,5 +84,42 @@ namespace Interview
             int c = a.CompareTo(b);
             Console.WriteLine(c);
         }
+
+        public static void ArrayMethod(int[] a)
+        {
+            int[] b = new int[5];
+            a = b;
+            Console.WriteLine(a.Length);
+            Console.WriteLine(b.Length);
+        }
+
+        public static void QuestionSeven()
+        {
+            int[] arr = new int[10];
+            ArrayMethod(arr);
+            Console.WriteLine(arr.Length);
+        }
+
+
+        class Person
+        {
+            public string Name { get; set; }
+            public Person(string name)
+            {
+                Name = name;
+            }
+        }
+
+        static void PersonMethod(Person p)
+        {
+            Person p1 = new Person("Tom");
+            p = p1;
+            Console.WriteLine(p.Name);
+            Console.WriteLine(p1.Name);
+            p.Name = "Peter";
+            Console.WriteLine(p.Name);
+            Console.WriteLine(p1.Name);
+        }
+
     }
 }
