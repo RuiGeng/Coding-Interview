@@ -13,8 +13,9 @@ namespace Interview
             //QuestionFive();
             //QuestionSix();
             //QuestionSeven();
-            QuestionEight();
-
+            //QuestionEight();
+            //QuestionNine();
+            //QuestionTen();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -145,6 +146,18 @@ namespace Interview
             int i = 0;
             Console.WriteLine(true ? x : 0);
             Console.WriteLine(false ? i : x);
+        }
+
+        public static void QuestionTen()
+        {
+            int num1 = 20;
+            int num2 = 30;
+
+            var a = num1 ^ num2;
+            Console.WriteLine(a);
+
+            num1 ^= num2 ^= num1 ^= num2;
+            Console.WriteLine(num1 + "," + num2);
         }
     }
 }
