@@ -13,6 +13,8 @@ namespace Interview
             //QuestionFive();
             //QuestionSix();
             //QuestionSeven();
+            QuestionEight();
+
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -119,6 +121,22 @@ namespace Interview
             p.Name = "Peter";
             Console.WriteLine(p.Name);
             Console.WriteLine(p1.Name);
+        }
+
+        public static void QuestionEight()
+        {
+            PrintQuestionEight(2, 3, 8);
+            int[] arr = {2, 11, 15, 20};
+            PrintQuestionEight(arr);
+        } 
+
+        public static void PrintQuestionEight(params int[] b)
+        {
+            foreach (var i in b)
+            {
+                Console.Write(i + " ");
+            }
+            Console.WriteLine();
         }
 
     }
