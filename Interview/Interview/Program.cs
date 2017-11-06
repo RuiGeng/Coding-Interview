@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Interview
 {
@@ -26,7 +27,8 @@ namespace Interview
             //Question13();
             //Question14();
             //Question15();
-            Question16();
+            //Question16();
+            Question17();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -254,6 +256,15 @@ namespace Interview
             Delegate16 delegate16 = new Delegate16(forQuestion16.CheckEven);
             delegate16 += new Delegate16(forQuestion16.SquareNumber);
             delegate16(25);
+        }
+
+        public static void Question17()
+        {
+            var arr = new List<int> { 20, 40, 35, 85, 70 };
+            var collection = new Collection<int>(arr);
+            arr.Add(60);
+            arr.Sort();
+            Console.WriteLine(string.Join(",", collection));
         }
     }
 }
