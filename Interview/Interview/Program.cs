@@ -20,7 +20,8 @@ namespace Interview
             //QuestionTen();
             //Question11();
             //Question12();
-            Question13();
+            //Question13();
+            Question14();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -192,6 +193,17 @@ namespace Interview
             foreach (string str in strings)
                 actions.Add(() => { Console.WriteLine(str); });
 
+            foreach (var action in actions)
+                action();
+        }
+
+        public static void Question14()
+        {
+            IList<Action> actions = new List<Action>();
+            for (int i = 0; i < 4; i++)
+            {
+                actions.Add(()=> Console.WriteLine(i));
+            }
             foreach (var action in actions)
                 action();
         }
