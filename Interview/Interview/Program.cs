@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Interview
 {
-    internal class Program
+    public class Program
     {
+        public delegate string Delegate15(string str);
+
         private static void Main(string[] args)
         {
             //QuestionOne();
@@ -21,7 +22,8 @@ namespace Interview
             //Question11();
             //Question12();
             //Question13();
-            Question14();
+            //Question14();
+            Question15();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -109,17 +111,17 @@ namespace Interview
             Console.WriteLine(arr.Length);
         }
 
-
-        class Person
+        private class Person
         {
             public string Name { get; set; }
+
             public Person(string name)
             {
                 Name = name;
             }
         }
 
-        static void PersonMethod(Person p)
+        private static void PersonMethod(Person p)
         {
             Person p1 = new Person("Tom");
             p = p1;
@@ -178,7 +180,7 @@ namespace Interview
             Console.WriteLine(ForQuestion12.Print());
         }
 
-        class ForQuestion12
+        private class ForQuestion12
         {
             public static string Print()
             {
@@ -202,10 +204,25 @@ namespace Interview
             IList<Action> actions = new List<Action>();
             for (int i = 0; i < 4; i++)
             {
-                actions.Add(()=> Console.WriteLine(i));
+                actions.Add(() => Console.WriteLine(i));
             }
             foreach (var action in actions)
                 action();
+        }
+
+        public class ForQuestion15
+        {
+            public static string DelegateSample(string a)
+            {
+                return a.Replace(',', '*');
+            }
+        }
+
+        public static void Question15()
+        {
+            Delegate15 str1 = new Delegate15(ForQuestion15.DelegateSample);
+            string str = str1("Welcome,,friends,,to,,TechBeamers");
+            Console.WriteLine(str);
         }
     }
 }
