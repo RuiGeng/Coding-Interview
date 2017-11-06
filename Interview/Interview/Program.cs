@@ -7,6 +7,8 @@ namespace Interview
     {
         public delegate string Delegate15(string str);
 
+        public delegate void Delegate16(int num);
+
         private static void Main(string[] args)
         {
             //QuestionOne();
@@ -23,7 +25,8 @@ namespace Interview
             //Question12();
             //Question13();
             //Question14();
-            Question15();
+            //Question15();
+            Question16();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -223,6 +226,34 @@ namespace Interview
             Delegate15 str1 = new Delegate15(ForQuestion15.DelegateSample);
             string str = str1("Welcome,,friends,,to,,TechBeamers");
             Console.WriteLine(str);
+        }
+
+        public class ForQuestion16
+        {
+            public void CheckEven(int num)
+            {
+                if (num % 2 == 0)
+                {
+                    Console.WriteLine("This number is an even number");
+                }
+                else
+                {
+                    Console.WriteLine("This number is an odd number");
+                }
+            }
+
+            public void SquareNumber(int num)
+            {
+                Console.WriteLine("Square of this number is: " + num * num);
+            }
+        }
+
+        public static void Question16()
+        {
+            ForQuestion16 forQuestion16 = new ForQuestion16();
+            Delegate16 delegate16 = new Delegate16(forQuestion16.CheckEven);
+            delegate16 += new Delegate16(forQuestion16.SquareNumber);
+            delegate16(25);
         }
     }
 }
