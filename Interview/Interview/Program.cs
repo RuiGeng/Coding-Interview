@@ -28,7 +28,8 @@ namespace Interview
             //Question14();
             //Question15();
             //Question16();
-            Question17();
+            //Question17();
+            Question18();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -265,6 +266,14 @@ namespace Interview
             arr.Add(60);
             arr.Sort();
             Console.WriteLine(string.Join(",", collection));
+        }
+
+        public static void Question18()
+        {
+            int? number = 0;
+            int num = 1;
+            Console.WriteLine(number.GetType());
+            Console.WriteLine(number.GetType() == num.GetType());
         }
     }
 }
