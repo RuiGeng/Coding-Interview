@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Interview
 {
@@ -17,7 +19,8 @@ namespace Interview
             //QuestionNine();
             //QuestionTen();
             //Question11();
-            Question12();
+            //Question12();
+            Question13();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -180,6 +183,17 @@ namespace Interview
             {
                 return "Hi, I am a Tech-savvy!!";
             }
+        }
+
+        public static void Question13()
+        {
+            string[] strings = { "abc", "def", "ghi" };
+            IList<Action> actions = new List<Action>();
+            foreach (string str in strings)
+                actions.Add(() => { Console.WriteLine(str); });
+
+            foreach (var action in actions)
+                action();
         }
     }
 }
