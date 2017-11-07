@@ -10,6 +10,8 @@ namespace Interview
 
         public delegate void Delegate16(int num);
 
+        public delegate void Delegate19(ref string str);
+
         private static void Main(string[] args)
         {
             //QuestionOne();
@@ -29,7 +31,8 @@ namespace Interview
             //Question15();
             //Question16();
             //Question17();
-            Question18();
+            //Question18();
+            Question19();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -275,5 +278,22 @@ namespace Interview
             Console.WriteLine(number.GetType());
             Console.WriteLine(number.GetType() == num.GetType());
         }
+
+        public class ForQuestion19
+        {
+            public static void StringMarker(ref string a)
+            {
+                a = a.Substring(0, a.Length - 6);
+            }
+        }
+
+        public static void Question19()
+        {
+            Delegate19 str1;
+            string str = "Let's Learn CSharp";
+            str1 = ForQuestion19.StringMarker;
+            str1(ref str);
+            Console.WriteLine(str);
+        } 
     }
 }
