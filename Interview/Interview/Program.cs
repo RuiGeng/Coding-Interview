@@ -32,7 +32,8 @@ namespace Interview
             //Question16();
             //Question17();
             //Question18();
-            Question19();
+            //Question19();
+            Question20();
 
             //Person p = new Person("Jack");
             //PersonMethod(p);
@@ -294,6 +295,22 @@ namespace Interview
             str1 = ForQuestion19.StringMarker;
             str1(ref str);
             Console.WriteLine(str);
-        } 
+        }
+
+        public static void Question20()
+        {
+            bool a = true;
+            bool b = false;
+
+            // When one operand is true and the other is false, exclusive-OR 
+            // returns True.
+            Console.WriteLine(true ^ false);
+            // When both operands are false, exclusive-OR returns False.
+            Console.WriteLine(false ^ false);
+            // When both operands are true, exclusive-OR returns False.
+            Console.WriteLine(true ^ true);
+            a ^= b;
+            Console.WriteLine(a);
+        }
     }
 }
