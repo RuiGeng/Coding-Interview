@@ -10,8 +10,21 @@ namespace Question13
         private static void Main(string[] args)
         {
             //1. Constructor Injection
-            Client client = new Client(new Service());
-            client.Start();
+            Client1 client1 = new Client1(new Service());
+            client1.Start();
+
+            //2. Property injection
+            Client2 client2 = new Client2
+            {
+                Service = new Service()
+            };
+            client2.Start();
+
+            //3. Method injection
+            Client3 client3 = new Client3();
+            client3.Start(new Service());
+
+            Console.ReadLine();
         }
 
         public interface IService
@@ -27,16 +40,42 @@ namespace Question13
             }
         }
 
-        public class Client
+        public class Client1
         {
             private readonly IService service;
 
-            public Client(IService service)
+            public Client1(IService service)
             {
                 this.service = service;
             }
 
             public void Start()
+            {
+                Console.WriteLine("Service Started");
+                service.Serve();
+            }
+        }
+
+        public class Client2
+        {
+            private IService service;
+
+            public IService Service
+            {
+                get { return service; }
+                set { this.service = value; }
+            }
+
+            public void Start()
+            {
+                Console.WriteLine("Service Started");
+                service.Serve();
+            }
+        }
+
+        public class Client3
+        {
+            public void Start(IService service)
             {
                 Console.WriteLine("Service Started");
                 service.Serve();
