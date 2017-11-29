@@ -8,7 +8,7 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Where3();
+            Where5_();
             Console.ReadLine();
         }
 
@@ -93,6 +93,33 @@ namespace LinqSamples
             foreach (var sp in soldOutProducts)
             {
                 Console.WriteLine(sp.ProductName);
+            }
+        }
+
+        public static void Where5()
+        {
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            var shortDigits = digits.Where((digit, index) => digit.Length < index);
+            Console.WriteLine("LinqSamples Where5");
+            foreach (var d in shortDigits)
+            {
+                Console.WriteLine(d);
+            }
+        }
+
+        public static void Where5_()
+        {
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var shortDigits = 
+                from d in digits.Select((digit, index) => new {digit, index})
+                where d.digit.Length < d.index
+                select d.digit;
+
+            Console.WriteLine("LinqSamples Where5_");
+            foreach (var d in shortDigits)
+            {
+                Console.WriteLine(d);
             }
         }
     }
