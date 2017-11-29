@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LinqSamples
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //Where1();
             Where2_();
@@ -17,11 +15,12 @@ namespace LinqSamples
 
         public static void Where1()
         {
-            int[] numbers = {5, 4, 1, 3, 9, 8, 6, 7, 2, 0};
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             var newNumbers = numbers.Where(i => i < 5);
+
+            Console.WriteLine("LinqSamples Where1");
             foreach (var n in newNumbers)
             {
-                Console.WriteLine("LinqSamples Where1");
                 Console.WriteLine(n);
             }
         }
@@ -29,16 +28,16 @@ namespace LinqSamples
         public static void Where1_()
         {
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var newNumbers = 
+            var newNumbers =
                 from n in numbers
                 where n < 5
                 select n;
+
+            Console.WriteLine("LinqSamples Where1_");
             foreach (var n in newNumbers)
             {
-                Console.WriteLine("LinqSamples Where1_");
                 Console.WriteLine(n);
             }
-
         }
 
         public static void Where2()
@@ -47,9 +46,9 @@ namespace LinqSamples
 
             var soldOutProducts = products.Where(p => p.UnitsInStock <= 0);
 
+            Console.WriteLine("LinqSamples Where2");
             foreach (var sp in soldOutProducts)
             {
-                Console.WriteLine("LinqSamples Where2");
                 Console.WriteLine(sp.ProductName);
             }
         }
@@ -63,9 +62,9 @@ namespace LinqSamples
                 where p.UnitsInStock <= 0
                 select p;
 
+            Console.WriteLine("LinqSamples Where2_");
             foreach (var sp in soldOutProducts)
             {
-                Console.WriteLine("LinqSamples Where2_");
                 Console.WriteLine(sp.ProductName);
             }
         }
