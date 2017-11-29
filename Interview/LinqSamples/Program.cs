@@ -10,7 +10,8 @@ namespace LinqSamples
     {
         static void Main(string[] args)
         {
-            Where1();
+            //Where1();
+            Where2_();
             Console.ReadLine();
         }
 
@@ -22,6 +23,50 @@ namespace LinqSamples
             {
                 Console.WriteLine("LinqSamples Where1");
                 Console.WriteLine(n);
+            }
+        }
+
+        public static void Where1_()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var newNumbers = 
+                from n in numbers
+                where n < 5
+                select n;
+            foreach (var n in newNumbers)
+            {
+                Console.WriteLine("LinqSamples Where1_");
+                Console.WriteLine(n);
+            }
+
+        }
+
+        public static void Where2()
+        {
+            List<Product> products = Product.GetProductList();
+
+            var soldOutProducts = products.Where(p => p.UnitsInStock <= 0);
+
+            foreach (var sp in soldOutProducts)
+            {
+                Console.WriteLine("LinqSamples Where2");
+                Console.WriteLine(sp.ProductName);
+            }
+        }
+
+        public static void Where2_()
+        {
+            List<Product> products = Product.GetProductList();
+
+            var soldOutProducts =
+                from p in products
+                where p.UnitsInStock <= 0
+                select p;
+
+            foreach (var sp in soldOutProducts)
+            {
+                Console.WriteLine("LinqSamples Where2_");
+                Console.WriteLine(sp.ProductName);
             }
         }
     }
