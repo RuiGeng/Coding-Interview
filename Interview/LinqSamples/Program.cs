@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace LinqSamples
 {
@@ -8,7 +9,7 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Where4();
+            Where4_();
             Console.ReadLine();
         }
 
@@ -100,12 +101,34 @@ namespace LinqSamples
         {
             List<Customer> customers = Customer.GetCustomerList();
 
-            var waCustomers = customers.Where(c => c.Region == "WA");
-
             Console.WriteLine("LinqSamples Where4");
+
+            foreach (var customer in customers.Where(c => c.Region == "WA"))
+            {
+                Console.WriteLine("Customer {0}: {1}", customer.CustomerId, customer.CompanyName);
+
+                foreach (var order in customer.Orders)
+                {
+                    Console.WriteLine("  Order {0}: {1}", order.OrderId, order.OrderDate);
+                }
+            }
+        }
+
+        public static void Where4_()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            Console.WriteLine("LinqSamples Where4_");
+
+            var waCustomers =
+                from c in customers
+                where c.Region == "WA"
+                select c;
+
             foreach (var customer in waCustomers)
             {
                 Console.WriteLine("Customer {0}: {1}", customer.CustomerId, customer.CompanyName);
+
                 foreach (var order in customer.Orders)
                 {
                     Console.WriteLine("  Order {0}: {1}", order.OrderId, order.OrderDate);
