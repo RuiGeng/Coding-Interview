@@ -8,7 +8,7 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Where5_();
+            Where4();
             Console.ReadLine();
         }
 
@@ -93,6 +93,23 @@ namespace LinqSamples
             foreach (var sp in soldOutProducts)
             {
                 Console.WriteLine(sp.ProductName);
+            }
+        }
+
+        public static void Where4()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var waCustomers = customers.Where(c => c.Region == "WA");
+
+            Console.WriteLine("LinqSamples Where4");
+            foreach (var customer in waCustomers)
+            {
+                Console.WriteLine("Customer {0}: {1}", customer.CustomerId, customer.CompanyName);
+                foreach (var order in customer.Orders)
+                {
+                    Console.WriteLine("  Order {0}: {1}", order.OrderId, order.OrderDate);
+                }
             }
         }
 
