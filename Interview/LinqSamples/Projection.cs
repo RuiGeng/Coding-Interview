@@ -90,5 +90,33 @@ namespace LinqSamples
                 Console.WriteLine(tn);
             }
         }
+
+        public static void Select4()
+        {
+            string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+
+            var upperLowerWords = words.Select(w => new { ToUpper = w.ToUpper(), ToLower = w.ToLower() });
+
+            Console.WriteLine("Select4");
+            foreach (var ul in upperLowerWords)
+            {
+                Console.WriteLine($@"Uppercase: {ul.ToUpper}, Lowercase: {ul.ToLower}");
+            }
+        }
+
+        public static void Select4_()
+        {
+            string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+
+            var upperLowerWords =
+                from word in words
+                select new { ToUpper = word.ToUpper(), ToLower = word.ToLower() };
+
+            Console.WriteLine("Select4_");
+            foreach (var ul in upperLowerWords)
+            {
+                Console.WriteLine($@"Uppercase: {ul.ToUpper}, Lowercase: {ul.ToLower}");
+            }
+        }
     }
 }
