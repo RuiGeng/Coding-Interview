@@ -229,5 +229,36 @@ namespace LinqSamples
                 Console.WriteLine(n);
             }
         }
+
+        public static void Select8()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var lowNums = numbers.Where(n => n < 5).Select((n, index) => new {Number = n, Text = digits[n], Index = index});
+
+            Console.WriteLine("Select8");
+            foreach (var num in lowNums)
+            {
+                Console.WriteLine(num);
+            }
+        }
+
+        public static void Select8_()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var lowNums =
+                from n in numbers.Select((n, index) => new {Number = n, Index = index})
+                where n.Number < 5
+                select new {n.Number, Text = digits[n.Number], n.Index};
+
+            Console.WriteLine("Select8_");
+            foreach (var num in lowNums)
+            {
+                Console.WriteLine(num);
+            }
+        }
     }
 }
