@@ -208,7 +208,7 @@ namespace LinqSamples
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
 
             var numsInPlace =
-                from newNumberList in numbers.Select((n, index) => new {Number = n, Index = index})
+                from newNumberList in numbers.Select((n, index) => new { Number = n, Index = index })
                 select new
                 {
                     newNumberList.Number,
@@ -235,7 +235,7 @@ namespace LinqSamples
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-            var lowNums = numbers.Where(n => n < 5).Select((n, index) => new {Number = n, Text = digits[n], Index = index});
+            var lowNums = numbers.Where(n => n < 5).Select((n, index) => new { Number = n, Text = digits[n], Index = index });
 
             Console.WriteLine("Select8");
             foreach (var num in lowNums)
@@ -250,14 +250,46 @@ namespace LinqSamples
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             var lowNums =
-                from n in numbers.Select((n, index) => new {Number = n, Index = index})
+                from n in numbers.Select((n, index) => new { Number = n, Index = index })
                 where n.Number < 5
-                select new {n.Number, Text = digits[n.Number], n.Index};
+                select new { n.Number, Text = digits[n.Number], n.Index };
 
             Console.WriteLine("Select8_");
             foreach (var num in lowNums)
             {
                 Console.WriteLine(num);
+            }
+        }
+
+        public static void SelectMany1()
+        {
+            int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            int[] numbersB = { 1, 3, 5, 7, 8 };
+
+            var pairs = numbersA.SelectMany(a => numbersB.Where(b => a < b), (nA, nB) => new { a = nA, b = nB });
+
+            Console.WriteLine("SelectMany1");
+            foreach (var pair in pairs)
+            {
+                Console.WriteLine("{0} is less than {1}", pair.a, pair.b);
+            }
+        }
+
+        public static void SelectMany1_()
+        {
+            int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            int[] numbersB = { 1, 3, 5, 7, 8 };
+
+            var pairs =
+                from a in numbersA
+                from b in numbersB
+                where a < b
+                select new { a, b };
+
+            Console.WriteLine("SelectMany1_");
+            foreach (var pair in pairs)
+            {
+                Console.WriteLine("{0} is less than {1}", pair.a, pair.b);
             }
         }
     }
