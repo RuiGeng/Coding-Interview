@@ -6,6 +6,8 @@ namespace LinqSamples
 {
     public class Projection
     {
+        private static int odd;
+
         public static void Select1()
         {
             int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
@@ -116,6 +118,39 @@ namespace LinqSamples
             foreach (var ul in upperLowerWords)
             {
                 Console.WriteLine($@"Uppercase: {ul.ToUpper}, Lowercase: {ul.ToLower}");
+            }
+        }
+
+        public static void Select5()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var digitOddEvens =
+                numbers.Select((n, index) => new {Digit = strings[n], isEven = n % 2 == 0, Index = index});
+
+            Console.WriteLine("Select5");
+            foreach (var d in digitOddEvens)
+            {
+                var oddEven = d.isEven ? "even" : "odd";
+                Console.WriteLine($@"The digit {d.Digit} is {oddEven} and index is {d.Index}");
+            }
+        }
+
+        public static void Select5_()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var digitOddEvens =
+                from i in numbers.Select((n, index) => new {Number = n, Index = index})
+                select new {Digit = strings[i.Number], isEven = i.Number % 2 == 0, Index = i.Index};
+
+            Console.WriteLine("Select5_");
+            foreach (var d in digitOddEvens)
+            {
+                var oddEven = d.isEven ? "even" : "odd";
+                Console.WriteLine($@"The digit {d.Digit} is {oddEven} and index is {d.Index}");
             }
         }
     }
