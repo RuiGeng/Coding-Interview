@@ -61,5 +61,34 @@ namespace LinqSamples
                 Console.WriteLine(pn);
             }
         }
+
+        public static void Select3()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var textNums = numbers.Select(i => strings[i]);
+            Console.WriteLine("Select3");
+            foreach (var tn in textNums)
+            {
+                Console.WriteLine(tn);
+            }
+        }
+
+        public static void Select3_()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            string[] strings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            var textNums =
+                from n in numbers
+                select strings[n];
+
+            Console.WriteLine("Select3_");
+            foreach (var tn in textNums)
+            {
+                Console.WriteLine(tn);
+            }
+        }
     }
 }

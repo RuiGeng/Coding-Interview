@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 
 namespace LinqSamples
 {
@@ -9,9 +6,8 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Projection.Select2_();
+            Projection.Select3();
             Console.ReadLine();
         }
-
     }
 }
