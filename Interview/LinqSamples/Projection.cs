@@ -159,7 +159,7 @@ namespace LinqSamples
             List<Product> products = Product.GetProductList();
 
             var productInfos = products.Select(p =>
-                new {p.ProductName, p.Category, Price = p.UnitPrice });
+                new { p.ProductName, p.Category, Price = p.UnitPrice });
 
             Console.WriteLine("Select6");
             foreach (var productInfo in productInfos)
@@ -174,12 +174,59 @@ namespace LinqSamples
 
             var productInfos =
                 from product in products
-                select new {product.ProductName, product.Category, Price = product.UnitPrice};
+                select new { product.ProductName, product.Category, Price = product.UnitPrice };
 
             Console.WriteLine("Select6_");
             foreach (var productInfo in productInfos)
             {
                 Console.WriteLine($@"{productInfo.ProductName} is in the category {productInfo.Category} and costs {productInfo.Price} per unit.");
+            }
+        }
+
+        public static void Select7()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var numsInPlace = numbers.Select((n, index) => new { Number = n, IsSameAsIndex = n == index, Index = index });
+
+            var newNumbers = numbers.Where((n, index) => n == index);
+
+            Console.WriteLine("Select7");
+            foreach (var n in numsInPlace)
+            {
+                Console.WriteLine($@"{n.Number}: {n.IsSameAsIndex}, {n.Index}");
+            }
+
+            foreach (var n in newNumbers)
+            {
+                Console.WriteLine(n);
+            }
+        }
+
+        public static void Select7_()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var numsInPlace =
+                from newNumberList in numbers.Select((n, index) => new {Number = n, Index = index})
+                select new
+                {
+                    newNumberList.Number,
+                    IsSameAsIndex = newNumberList.Number == newNumberList.Index,
+                    newNumberList.Index
+                };
+
+            var newNumbers = numbers.Where((n, index) => n == index);
+
+            Console.WriteLine("Select7_");
+            foreach (var n in numsInPlace)
+            {
+                Console.WriteLine($@"{n.Number}: {n.IsSameAsIndex}, {n.Index}");
+            }
+
+            foreach (var n in newNumbers)
+            {
+                Console.WriteLine(n);
             }
         }
     }
