@@ -292,5 +292,35 @@ namespace LinqSamples
                 Console.WriteLine("{0} is less than {1}", pair.a, pair.b);
             }
         }
+
+        public static void SelectMany2()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders = customers.SelectMany(c => c.Orders.Where(o => o.Total < 500), (c, o) => new { c.CustomerId, o.OrderId, o.Total });
+
+            Console.WriteLine("SelectMany2");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany2_()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders =
+                from customer in customers
+                from order in customer.Orders
+                where order.Total < 500.00M
+                select new {customer.CustomerId, order.OrderId, order.Total};
+
+            Console.WriteLine("SelectMany2_");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
     }
 }

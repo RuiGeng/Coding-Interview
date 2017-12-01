@@ -6,7 +6,7 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Projection.SelectMany1();
+            Projection.SelectMany2_();
             Console.ReadLine();
         }
     }
