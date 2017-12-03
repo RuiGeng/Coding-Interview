@@ -378,9 +378,41 @@ namespace LinqSamples
                 from customer in customers
                 from order in customer.Orders
                 where order.Total > 2000.0M
-                select new {customer.CustomerId, order.OrderId, order.Total};
+                select new { customer.CustomerId, order.OrderId, order.Total };
 
             Console.WriteLine("SelectMany4_");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+        public static void SelectMany5()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders = customers.Where(c => c.Region == "WA")
+                .SelectMany(c => c.Orders.Where(o => o.OrderDate > new DateTime(1997, 1, 1)),
+                (c, o) => new { c.CustomerId, o.OrderId });
+
+            Console.WriteLine("SelectMany5");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany5_()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders =
+                from customer in customers
+                where customer.Region == "WA"
+                from order in customer.Orders
+                where order.OrderDate > new DateTime(1997, 1, 1)
+                select new {customer.CustomerId, order.OrderId};
+
+            Console.WriteLine("SelectMany5_");
             foreach (var order in orders)
             {
                 Console.WriteLine(order);
