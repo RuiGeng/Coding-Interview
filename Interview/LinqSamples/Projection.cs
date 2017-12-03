@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace LinqSamples
 {
@@ -349,6 +350,37 @@ namespace LinqSamples
                 select new { customer.CustomerId, order.OrderId, order.OrderDate };
 
             Console.WriteLine("SelectMany3_");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany4()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders = customers.SelectMany(c => c.Orders.Where(o => o.Total > 2000.0M),
+                (c, o) => new { c.CustomerId, o.OrderId, o.Total });
+
+            Console.WriteLine("SelectMany4");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany4_()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders =
+                from customer in customers
+                from order in customer.Orders
+                where order.Total > 2000.0M
+                select new {customer.CustomerId, order.OrderId, order.Total};
+
+            Console.WriteLine("SelectMany4_");
             foreach (var order in orders)
             {
                 Console.WriteLine(order);
