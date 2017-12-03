@@ -314,9 +314,24 @@ namespace LinqSamples
                 from customer in customers
                 from order in customer.Orders
                 where order.Total < 500.00M
-                select new {customer.CustomerId, order.OrderId, order.Total};
+                select new { customer.CustomerId, order.OrderId, order.Total };
 
             Console.WriteLine("SelectMany2_");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany3()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders = customers.SelectMany(
+                customer => customer.Orders.Where(order => order.OrderDate > new DateTime(1998, 1, 1)),
+                (customer, order) => new { customer.CustomerId, order.OrderId, order.OrderDate });
+
+            Console.WriteLine("SelectMany3");
             foreach (var order in orders)
             {
                 Console.WriteLine(order);
