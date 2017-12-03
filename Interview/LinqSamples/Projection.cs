@@ -337,5 +337,22 @@ namespace LinqSamples
                 Console.WriteLine(order);
             }
         }
+
+        public static void SelectMany3_()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var orders =
+                from customer in customers
+                from order in customer.Orders
+                where order.OrderDate > new DateTime(1998, 1, 1)
+                select new { customer.CustomerId, order.OrderId, order.OrderDate };
+
+            Console.WriteLine("SelectMany3_");
+            foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
     }
 }
