@@ -410,10 +410,42 @@ namespace LinqSamples
                 where customer.Region == "WA"
                 from order in customer.Orders
                 where order.OrderDate > new DateTime(1997, 1, 1)
-                select new {customer.CustomerId, order.OrderId};
+                select new { customer.CustomerId, order.OrderId };
 
             Console.WriteLine("SelectMany5_");
             foreach (var order in orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany6()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var customerOrders = customers.SelectMany((customer, custIndex) =>
+                customer.Orders.Select(o => "Customer #" + (custIndex + 1) +
+                                                            " has an order with OrderID " + o.OrderId));
+
+            Console.WriteLine("SelectMany6");
+            foreach (var order in customerOrders)
+            {
+                Console.WriteLine(order);
+            }
+        }
+
+        public static void SelectMany6_()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var customerOrders =
+                from customer in customers.Select((c, i) => new {Cust = c, Index = i})
+                from o in customer.Cust.Orders
+                select "Customer #" + (customer.Index + 1) +
+                       " has an order with OrderID " + o.OrderId;
+
+            Console.WriteLine("SelectMany6_");
+            foreach (var order in customerOrders)
             {
                 Console.WriteLine(order);
             }
