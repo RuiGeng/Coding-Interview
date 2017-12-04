@@ -56,5 +56,19 @@ namespace LinqSamples
                 Console.WriteLine(order);
             }
         }
+
+        public static void Skip1()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var allButFirst4Numbers = numbers.Skip(4);
+
+            Console.WriteLine("LinqSamples Skip1");
+
+            foreach (var n in allButFirst4Numbers)
+            {
+                Console.WriteLine(n);
+            }
+        }
     }
 }
