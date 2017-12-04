@@ -6,8 +6,9 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Partitioning.Take1();
+            Partitioning.Take2();
             Console.ReadLine();
         }
+
     }
 }
