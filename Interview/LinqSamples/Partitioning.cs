@@ -70,5 +70,20 @@ namespace LinqSamples
                 Console.WriteLine(n);
             }
         }
+
+        public static void Skip2()
+        {
+            List<Customer> customers = Customer.GetCustomerList();
+
+            var allButFirst2Orders = customers.Where(c => c.Region == "WA").SelectMany(c => c.Orders,
+                (customer, order) => new { customer.CustomerId, order.OrderId, order.OrderDate }).Skip(2);
+
+            Console.WriteLine("LinqSamples Skip2");
+
+            foreach (var order in allButFirst2Orders)
+            {
+                Console.WriteLine(order);
+            }
+        }
     }
 }
