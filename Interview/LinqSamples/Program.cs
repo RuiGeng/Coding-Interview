@@ -6,7 +6,7 @@ namespace LinqSamples
     {
         private static void Main(string[] args)
         {
-            Partitioning.TakeWhile2();
+            Partitioning.SkipWhile();
             Console.ReadLine();
         }
 

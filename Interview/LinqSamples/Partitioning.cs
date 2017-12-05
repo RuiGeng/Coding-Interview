@@ -131,5 +131,21 @@ namespace LinqSamples
                 Console.WriteLine(number);
             }
         }
+
+
+        public static void SkipWhile()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var allButFirst3Numbers = numbers.SkipWhile(n => n % 3 != 0);
+
+            Console.WriteLine("LinqSamples SkipWhile");
+
+            foreach (var number in allButFirst3Numbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+
     }
 }
