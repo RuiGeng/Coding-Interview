@@ -103,5 +103,33 @@ namespace LinqSamples
                 Console.WriteLine(order);
             }
         }
+
+        public static void TakeWhile()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var firstNumbersLessThan6 = numbers.TakeWhile(n => n < 6);
+
+            Console.WriteLine("LinqSamples TakeWhile");
+
+            foreach (var number in firstNumbersLessThan6)
+            {
+                Console.WriteLine(number);
+            }
+        }
+
+        public static void TakeWhile2()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var firstSmallNumbers = numbers.TakeWhile((n, i) => n >= i);
+
+            Console.WriteLine("LinqSamples TakeWhile2");
+
+            foreach (var number in firstSmallNumbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
     }
 }
