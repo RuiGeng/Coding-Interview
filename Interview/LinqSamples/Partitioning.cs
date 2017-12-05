@@ -147,5 +147,19 @@ namespace LinqSamples
             }
         }
 
+        public static void SkipWhile2()
+        {
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            var laterNumbers = numbers.SkipWhile((n, index) => n > index);
+
+            Console.WriteLine("LinqSamples SkipWhile2");
+
+            foreach (var number in laterNumbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+
     }
 }
