@@ -10,7 +10,10 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Code366.Fibonacci2(47));
+            ListNode listNode = new ListNode(1);
+            listNode.Next = new ListNode(1);
+            listNode.Next.Next = null;
+            Console.WriteLine(Code452.RemoveElements(listNode, 1));
             Console.ReadLine();
         }
     }
