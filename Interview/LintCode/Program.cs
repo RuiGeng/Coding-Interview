@@ -10,9 +10,9 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            string s = "asdfghjkl";
-            string t = "lkjhgfdsa";
-            Console.WriteLine(Code158.Anagram(s, t));
+            string s = "ABCDEFG";
+            string t = "ACC";
+            Console.WriteLine(Code55.CompareStrings(s, t));
             Console.ReadLine();
         }
     }
