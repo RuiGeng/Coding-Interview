@@ -10,10 +10,9 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            ListNode listNode = new ListNode(1);
-            listNode.Next = new ListNode(1);
-            listNode.Next.Next = null;
-            Console.WriteLine(Code452.RemoveElements(listNode, 1));
+            string s = "asdfghjkl";
+            string t = "lkjhgfdsa";
+            Console.WriteLine(Code158.Anagram(s, t));
             Console.ReadLine();
         }
     }
