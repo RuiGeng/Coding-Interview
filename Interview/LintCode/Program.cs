@@ -10,9 +10,9 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            string s = "ABCDEFG";
-            string t = "ACC";
-            Console.WriteLine(Code55.CompareStrings(s, t));
+            string s = "abcdefgh";
+            string t = "cde";
+            Console.WriteLine(Code13.StrStr(s, t));
             Console.ReadLine();
         }
     }
