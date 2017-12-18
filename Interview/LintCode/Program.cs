@@ -10,12 +10,10 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            string[] stringList = {"lint", "intl", "inlt", "code", "ab", "ba", "cd", "dc", "e"};
-            foreach (var s in Code171.Anagrams(stringList))
-            {
-                Console.WriteLine(s);
-            }
-            //Console.WriteLine();
+            string A = "asd";
+            String B = "";
+
+            Console.WriteLine(Code79.LongestCommonSubstring(A,B));
             Console.ReadLine();
         }
     }
