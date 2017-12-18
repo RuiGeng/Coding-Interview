@@ -12,15 +12,12 @@
             foreach (var str in stringList)
             {
                 var sortStr = SortString(str);
-                if (newDictionary.ContainsKey(sortStr))
-                {
-                    newDictionary[sortStr].Add(str);
-                }
-                else
+                if (!newDictionary.ContainsKey(sortStr))
                 {
                     newDictionary.Add(sortStr, new List<string>());
-                    newDictionary[sortStr].Add(str);
                 }
+
+                newDictionary[sortStr].Add(str);
             }
 
             foreach (var d in newDictionary)
