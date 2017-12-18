@@ -10,9 +10,12 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            string s = "abcdefgh";
-            string t = "cde";
-            Console.WriteLine(Code13.StrStr(s, t));
+            string[] stringList = {"lint", "intl", "inlt", "code", "ab", "ba", "cd", "dc", "e"};
+            foreach (var s in Code171.Anagrams(stringList))
+            {
+                Console.WriteLine(s);
+            }
+            //Console.WriteLine();
             Console.ReadLine();
         }
     }
