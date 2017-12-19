@@ -10,10 +10,9 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            string A = "asd";
-            String B = "";
+            string[] A = { "a", "a", "aa", "abba", "aa" };
 
-            Console.WriteLine(Code79.LongestCommonSubstring(A,B));
+            Console.WriteLine(Code78.LongestCommonPrefix(A));
             Console.ReadLine();
         }
     }

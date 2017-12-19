@@ -49,6 +49,7 @@
     <Compile Include="Code366.cs" />
     <Compile Include="Code452.cs" />
     <Compile Include="Code55.cs" />
+    <Compile Include="Code78.cs" />
     <Compile Include="Code79.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
