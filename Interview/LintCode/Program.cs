@@ -10,9 +10,9 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            string[] A = { "a", "a", "aa", "abba", "aa" };
+            int[] A = { 0, 4, 4, 0, 0, 2, 4, 4 };
 
-            Console.WriteLine(Code78.LongestCommonPrefix(A));
+            Console.WriteLine(Code172.RemoveElement(A, 4));
             Console.ReadLine();
         }
     }
