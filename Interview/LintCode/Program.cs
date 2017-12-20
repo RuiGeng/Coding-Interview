@@ -10,9 +10,8 @@ namespace LintCode
     {
         static void Main(string[] args)
         {
-            int[] A = { 0, 4, 4, 0, 0, 2, 4, 4 };
-
-            Console.WriteLine(Code172.RemoveElement(A, 4));
+            int[] A = { -5, 0, 2, 3, -3, 3, -3, 1, 2, -3, 4 };
+            Code138.SubarraySum(A);
             Console.ReadLine();
         }
     }
